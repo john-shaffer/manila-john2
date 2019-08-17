@@ -5,5 +5,5 @@
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [com.ashafa/clutch "0.4.0"]
-                 [com.cemerick/url "0.1.1"]]
+                 [com.arohner/uri "0.1.2"]]
   :main manila-john)
