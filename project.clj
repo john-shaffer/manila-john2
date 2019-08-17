@@ -3,7 +3,7 @@
   :url "https://github.com/john-shaffer/manila-john"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [com.ashafa/clutch "0.3.0"]
-                 [com.cemerick/url "0.1.0"]]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [com.ashafa/clutch "0.4.0"]
+                 [com.cemerick/url "0.1.1"]]
   :main manila-john)
