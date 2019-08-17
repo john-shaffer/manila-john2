@@ -2,7 +2,7 @@
   "A CouchDB library which implements only what clutch does not."
   (:use com.ashafa.clutch)
   (:require [manila-john.util :as util]
-            [cemerick.url :as url]
+            [cemerick.uri :as uri]
             [com.ashafa.clutch [utils :as utils]]))
 
 (def native-couch-fns #{"_count" "_stats" "_sums"})
@@ -124,7 +124,7 @@
   (try
     (apply get-view db ddoc-name view-key args)
     (catch Exception e
-      (let [ddoc-id (str "_design/" (url/url-encode ddoc-name))
+      (let [ddoc-id (str "_design/" (uri/uri-encode ddoc-name))
             ddoc (or (get-document db ddoc-id) {:_id ddoc-id})]
         (if (= compiled-view-fns (:views ddoc))
           (throw e)
