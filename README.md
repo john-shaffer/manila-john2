@@ -1,6 +1,6 @@
 ﻿# manila-john
 
-manila-john is a CouchDB library for Clojure that extends Clutch to add advanced functionality.
+manila-john is a [Clojure](http://clojure.org) library for [Apache CouchDB](http://couchdb.apache.org/).
 
 ## Usage
 
