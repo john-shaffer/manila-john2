@@ -1,5 +1,6 @@
 (ns manila-john 
   "manila-john is a Clojure library for Apache CouchDB."
+  (:refer-clojure :exclude [assoc! conj! dissoc!])
   (:use com.ashafa.clutch)
   (:require [manila-john.util :as util]
             [cemerick.uri :as uri]
