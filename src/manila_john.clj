@@ -177,21 +177,3 @@
   [low-key high-key options]
   (let [[a b] (if (:descending options) [:endkey :startkey] [:startkey :endkey])]
     (merge {a low-key, b high-key} options)))
-
-(defmacro emit-results [xs]
-  ``(~'loop [xs# ~~xs]
-      (~'when (~'seq xs#)
-        (~'when (~'seq xs#)
-          (~'let [[k# x#] (~'first xs#)
-                  k# (~'clj->js k#)
-                  x# (~'clj->js x#)]
-            (~'js/emit k# x#)
-            (~'recur (~'rest xs#)))))))
-
-(defmacro emitter [bindings & body]
-  (let [doc `doc#]
-    ``(~'fn [~~doc]
-        ~~(emit-results
-           ``(~'let [~~doc (~'js->clj ~~doc {:keywordize-keys true})
-                     ~~bindings [~~doc]]
-               ~@body)))))
