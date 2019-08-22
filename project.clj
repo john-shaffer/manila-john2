@@ -1,4 +1,4 @@
-(defproject manila-john "0.1.0-SNAPSHOT"
+(defproject manila-john "0.1.0"
   :description "A Clojure library for Apache CouchDB."
   :url "https://github.com/john-shaffer/manila-john"
   :license {:name "The MIT License"
