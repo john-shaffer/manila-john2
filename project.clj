@@ -9,6 +9,7 @@
                  [com.ashafa/clutch "0.4.0"]
                  [com.arohner/uri "0.1.2"]
                  [commons-codec "1.13"]
-                 [org.clojure/clojurescript "1.10.520" :optional true]]
+                 [org.clojure/clojurescript "1.10.520" :optional true]
+                 [slingshot "0.12.2"]]
   :min-lein-version "2.0.0"
   :repl-options {:init-ns manila-john})
