@@ -1,6 +1,6 @@
-﻿# manila-john
+﻿# Manila John
 
-manila-john is a [Clojure](http://clojure.org) library for [Apache CouchDB](http://couchdb.apache.org/).
+Manila John is a [Clojure](http://clojure.org) library for [Apache CouchDB](http://couchdb.apache.org/).
 
 ## Usage
 
