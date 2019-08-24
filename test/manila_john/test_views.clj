@@ -12,7 +12,7 @@
 
 (defn make-conflict [id]
   (-> id mj/get-doc (dissoc :_rev) (assoc :v 1)
-      vector (mj/bulk-update :all_or_nothing true)))
+      vector mj/bulk-update))
 
 (deftest test-conflict-count
   (is (= 0 (conflict-count)))
