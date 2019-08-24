@@ -14,9 +14,9 @@
 (defviews "uris" :javascript
   (by-uri
    "function (doc) {
-                   if (doc.uris) {
-                                  for (var i in doc.uris) {
-                                                           emit (doc.uris [i].toLowerCase (), [doc.title, doc.price])}}}"
+     if (doc.uris) {
+       for (var i in doc.uris) {
+         emit (doc.uris [i].toLowerCase (), [doc.title, doc.price])}}}"
    "_count"))
 
 (defviews nil :cljs ;autocreate ddoc name
