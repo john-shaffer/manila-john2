@@ -1,5 +1,5 @@
 (ns manila-john.query
-  (:refer-clojure :exclude [filter key keys map take type val vals])
+  (:refer-clojure :exclude [filter key keys map reduce take type val vals])
   (:require [clojure.core :as c]
             [com.ashafa.clutch :as cl]
             [manila-john :as mj]))
