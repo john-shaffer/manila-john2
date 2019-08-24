@@ -14,12 +14,12 @@
 (defviews "uris" :javascript
   (by-uri
    "function (doc) {
-     if (doc.uris) {
-       for (var i in doc.uris) {
-         emit (doc.uris [i].toLowerCase (), [doc.title, doc.price])}}}"
+      if (doc.uris) {
+        for (var i in doc.uris) {
+          emit (doc.uris [i].toLowerCase (), [doc.title, doc.price])}}}"
    "_count"))
 
-(defviews nil :cljs ;autocreate ddoc name
+(defviews nil :cljs ; Autogenerate design doc name.
   (by-price
    (fn [doc]
      (when (.-price doc)
@@ -29,7 +29,7 @@
 (defviews {:ddoc-prefix "titles-"} :javascript
   (by-title
    "function (doc) {
-                   if (doc.title) emit (doc.title.toLowerCase ())}"))
+      if (doc.title) emit (doc.title.toLowerCase ())}"))
 
 (defdbop uri-count [db & [options]]
   (-> (by-uri db options) first :value (or 0)))
@@ -79,16 +79,3 @@
       (is (= "(function" (->> price-meta :compiled-view-fns :by-price :map (take 9))))
       (is (= "_stats" (-> price-meta :compiled-view-fns :by-price :reduce)))
       (is (= "titles-" (->> #'by-title meta :manila-john :ddoc-name (take 7)))))))
-
-(deftest test-emitter
-  (is (nil? (eval `(emit-results []))))
-  (is (nil? (eval `(emitter [doc#] [[r#]]))))
-  (is (= `fn (first (eval `(emitter [doc#] nil)))))
-  (let [e (eval `(emitter [doc#]
-                          (~`for [uri# (:uris doc#)]
-                            [uri# (:title doc#)])))
-        [_ e] (view-server-fns-fn :cljs {:e {:map e}})]
-    (is (nil? e))
-    (is (= [["/gold" "Gold"] ["/oro" "Gold"] ["/wood" "Wood"]]
-           (->> (get-or-save-view "e" :e :javascript e)
-                (map (juxt :key :value)))))))
