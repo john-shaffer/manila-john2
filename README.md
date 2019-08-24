@@ -8,6 +8,6 @@ manila-john is a [Clojure](http://clojure.org) library for [Apache CouchDB](http
 
 ## License
 
-Copyright © 2014-2019
+Copyright © 2009-2019 Tunde Ashafa and other contributors
 
-Distributed under the MIT License.
+Distributed under the BSD License.
